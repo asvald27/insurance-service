@@ -6,5 +6,20 @@ spring:
     username: admin
     password: qwerty
     url: jdbc:postgresql://localhost:5432/dev_insurance_db
+  jpa:
+    hibernate:
+      ddl-auto: validate  # или none - Liquibase будет управлять схемой
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/changelog-master.yaml
+    default-schema: public
+    liquibase-schema: public
+    drop-first: false  # ВНИМАНИЕ: true только для dev/тестов
 server:
   port: 8083

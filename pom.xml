@@ -78,6 +78,10 @@
             <artifactId>swagger-annotations</artifactId>
             <version>2.2.8</version>
         </dependency>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -112,6 +116,30 @@
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>4.24.0</version>
+                <configuration>
+                    <!-- Указываем URL к базе данных -->
+                    <url>jdbc:postgresql://localhost:5432/dev_insurance_db</url>
+                    <username>admin</username>
+                    <password>qwerty</password>
+                    <driver>org.postgresql.Driver</driver>
+                    <!-- Путь к changelog файлу -->
+                    <changeLogFile>src/main/resources/db/changelog/changelog-master.yaml</changeLogFile>
+                    <!-- Опционально: схема -->
+                    <defaultSchemaName>public</defaultSchemaName>
+                </configuration>
+                <dependencies>
+                    <!-- Зависимость для PostgreSQL драйвера -->
+                    <dependency>
+                        <groupId>org.postgresql</groupId>
+                        <artifactId>postgresql</artifactId>
+                        <version>42.6.0</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
