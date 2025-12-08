@@ -17,9 +17,19 @@ spring:
 
   liquibase:
     enabled: true
-    change-log: classpath:/db/changelog/changelog-master.yaml
+    change-log: db/changelog/changelog-master.yaml
     default-schema: public
     liquibase-schema: public
     drop-first: false  # ВНИМАНИЕ: true только для dev/тестов
 server:
   port: 8083
+ms:
+  insurance:
+    health:
+      base-rate: ${INSURANCE_BASE_RATE:5000.00}      # Можете оставить без .0
+      age-factor:
+        young: ${INSURANCE_AGE_FACTOR_YOUNG:0.9}
+        middle: ${INSURANCE_AGE_FACTOR_MIDDLE:1.0}
+        senior: ${INSURANCE_AGE_FACTOR_SENIOR:1.3}
+      smoker-factor: ${INSURANCE_SMOKER_FACTOR:1.5}
+      chronic-disease-factor: ${INSURANCE_CHRONIC_DISEASE_FACTOR:1.8}

@@ -1,7 +1,10 @@
 databaseChangeLog:
   - include:
-      file: db/changelog/v-1.0.0/001-create-auto-policies-table.sql
+      file: v-1.0.0/001-create-auto-policies-table.sql
+      relativeToChangelogFile: true
   - include:
-      file: db/changelog/v-1.0.0/002-create-health-policies-table.sql
+      file: v-1.0.0/002-create-health-policies-table.sql
+      relativeToChangelogFile: true
   - include:
-      file: db/changelog/v-1.0.0/003-create-life-policies-table.sql
+      file: v-1.0.0/003-create-life-policies-table.sql
+      relativeToChangelogFile: true
