@@ -14,7 +14,7 @@ import ru.insur.insuranceservice.dto.CreateHealthPolicyRequest;
 import ru.insur.insuranceservice.dto.HealthPolicyResponse;
 import ru.insur.insuranceservice.mapper.HealthInsuranceMapper;
 import ru.insur.insuranceservice.service.impl.HealthInsuranceServiceImpl;
-import ru.insur.insuranceservice.validator.PolicyValidator;
+import ru.insur.insuranceservice.validator.HealthPolicyValidator;
 import testUtil.healthTestUtil.HealthTestUtil;
 
 import java.math.BigDecimal;
@@ -28,7 +28,7 @@ public class HealthInsuranceServiceImplTest {
     @Mock
     private HealthInsurancePolicyRepository healthInsurancePolicyRepository;
     @Mock
-    private PolicyValidator policyValidator;
+    private HealthPolicyValidator policyValidator;
     @Mock
     private HealthPremiumCalculator premiumCalculator;
     @Mock

@@ -6,10 +6,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ru.insur.insuranceservice.dto.CreateHealthPolicyRequest;
-import ru.insur.insuranceservice.dto.HealthPoliceByStatusResponse;
 import ru.insur.insuranceservice.dto.HealthExpiredPolicyResponse;
+import ru.insur.insuranceservice.dto.HealthPoliceByStatusResponse;
 import ru.insur.insuranceservice.dto.HealthPolicyResponse;
-import ru.insur.insuranceservice.service.InsuranceService;
+import ru.insur.insuranceservice.service.HealthInsuranceService;
 
 import java.util.UUID;
 
@@ -19,7 +19,7 @@ import java.util.UUID;
 @Validated
 public class HealthPolicyController {
 
-    private final InsuranceService insuranceService;
+    private final HealthInsuranceService insuranceService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

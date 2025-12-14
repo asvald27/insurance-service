@@ -8,15 +8,14 @@ import ru.insur.insuranceservice.calculator.HealthPremiumCalculator;
 import ru.insur.insuranceservice.db.entity.HealthInsurancePolicy;
 import ru.insur.insuranceservice.db.repository.HealthInsurancePolicyRepository;
 import ru.insur.insuranceservice.dto.CreateHealthPolicyRequest;
-import ru.insur.insuranceservice.dto.HealthPoliceByStatusResponse;
 import ru.insur.insuranceservice.dto.HealthExpiredPolicyResponse;
+import ru.insur.insuranceservice.dto.HealthPoliceByStatusResponse;
 import ru.insur.insuranceservice.dto.HealthPolicyResponse;
 import ru.insur.insuranceservice.enums.PolicyStatus;
 import ru.insur.insuranceservice.exception.HealthPolicyNotFoundException;
-import ru.insur.insuranceservice.exception.PolicyNotFoundException;
 import ru.insur.insuranceservice.mapper.HealthInsuranceMapper;
-import ru.insur.insuranceservice.service.InsuranceService;
-import ru.insur.insuranceservice.validator.PolicyValidator;
+import ru.insur.insuranceservice.service.HealthInsuranceService;
+import ru.insur.insuranceservice.validator.HealthPolicyValidator;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -28,10 +27,10 @@ import java.util.UUID;
 @Slf4j
 @Transactional
 @RequiredArgsConstructor
-public class HealthInsuranceServiceImpl implements InsuranceService {
+public class HealthInsuranceServiceImpl implements HealthInsuranceService {
 
     private final HealthInsurancePolicyRepository healthInsurancePolicyRepository;
-    private final PolicyValidator policyValidator;
+    private final HealthPolicyValidator policyValidator;
     private final HealthPremiumCalculator premiumCalculator;
     private final HealthInsuranceMapper healthInsuranceMapper;
 

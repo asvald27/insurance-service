@@ -1,4 +1,4 @@
-package ru.insur.insuranceservice.config.calculator;
+package ru.insur.insuranceservice.config.calculator.health;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Component
-@ConfigurationProperties(prefix = "ms.insurance.health")  // ← Должно быть точно так
+@ConfigurationProperties(prefix = "ms.insurance.calculator.health")  // ← Должно быть точно так
 @Validated  // ← Добавьте если используете валидацию
 public class HealthPremiumCalculatorConfig {
     @NotNull
