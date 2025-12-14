@@ -1,4 +1,4 @@
-package ru.insur.insuranceservice.config.calculator;
+package ru.insur.insuranceservice.config.calculator.health;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;

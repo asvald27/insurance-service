@@ -2,7 +2,7 @@ package ru.insur.insuranceservice.validator;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import ru.insur.insuranceservice.dto.CreateHealthPolicyRequest;
+import ru.insur.insuranceservice.dto.CreateAutoPolicyRequest;
 import ru.insur.insuranceservice.exception.ValidationException;
 
 import java.math.BigDecimal;
@@ -15,12 +15,12 @@ import java.util.List;
  */
 @Component
 @Slf4j
-public class PolicyValidator {
+public class AutoPolicyValidator implements Validator<CreateAutoPolicyRequest> {
 
-    public void validate(CreateHealthPolicyRequest request) {
+    @Override
+    public void validate(CreateAutoPolicyRequest request) {
         List<String> errors = new ArrayList<>();
 
-        // Проверка дат
         if (request.startDate().isAfter(request.endDate())) {
             errors.add("Start date must be before end date");
         }
@@ -29,12 +29,6 @@ public class PolicyValidator {
             errors.add("Start date cannot be in the past");
         }
 
-        // Проверка возраста
-        if (request.insuredAge() < 18 || request.insuredAge() > 100) {
-            errors.add("Insured age must be between 18 and 100");
-        }
-
-        // Проверка суммы покрытия
         if (request.coverageAmount().compareTo(BigDecimal.ZERO) <= 0) {
             errors.add("Coverage amount must be positive");
         }

@@ -25,11 +25,16 @@ server:
   port: 8083
 ms:
   insurance:
-    health:
-      base-rate: ${INSURANCE_BASE_RATE:5000.00}      # Можете оставить без .0
-      age-factor:
-        young: ${INSURANCE_AGE_FACTOR_YOUNG:0.9}
-        middle: ${INSURANCE_AGE_FACTOR_MIDDLE:1.0}
-        senior: ${INSURANCE_AGE_FACTOR_SENIOR:1.3}
-      smoker-factor: ${INSURANCE_SMOKER_FACTOR:1.5}
-      chronic-disease-factor: ${INSURANCE_CHRONIC_DISEASE_FACTOR:1.8}
+    calculator:
+      auto:
+        base-rate: ${AUTO_INSURANCE_BASE_RATE:3000.00}
+        driver-experience-factor: ${DRIVER_EXPERIENCE_FACTOR:5.6}
+        accident-factor: ${CLIENT_ACCIDENT_FACTOR:3.5}
+      health:
+        base-rate: ${HEALTH_INSURANCE_BASE_RATE:5000.00}      # Можете оставить без .0
+        age-factor:
+          young: ${INSURANCE_AGE_FACTOR_YOUNG:0.9}
+          middle: ${INSURANCE_AGE_FACTOR_MIDDLE:1.0}
+          senior: ${INSURANCE_AGE_FACTOR_SENIOR:1.3}
+        smoker-factor: ${INSURANCE_SMOKER_FACTOR:1.5}
+        chronic-disease-factor: ${INSURANCE_CHRONIC_DISEASE_FACTOR:1.8}
