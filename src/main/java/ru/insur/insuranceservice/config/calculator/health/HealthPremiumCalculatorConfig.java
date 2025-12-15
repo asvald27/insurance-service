@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
 
@@ -13,12 +14,13 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Component
-@ConfigurationProperties(prefix = "ms.insurance.calculator.health")  // ← Должно быть точно так
-@Validated  // ← Добавьте если используете валидацию
+@ConfigurationProperties(prefix = "ms.insurance.calculator.health")
+@Validated
 public class HealthPremiumCalculatorConfig {
     @NotNull
     private BigDecimal baseRate;
-    @Valid  // ← Для вложенных объектов
+    @Valid
+    @NestedConfigurationProperty
     private AgeFactor ageFactor;
     @NotNull
     private BigDecimal  smokerFactor;
