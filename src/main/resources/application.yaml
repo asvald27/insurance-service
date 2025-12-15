@@ -26,6 +26,28 @@ server:
 ms:
   insurance:
     calculator:
+      life:
+        base-rate-per-thousand: 1.5  # 1.5 на 1000 единиц покрытия
+        age-factor:
+          young: 1.2      # до 30 лет
+          middle: 1.0     # 31-50 лет
+          senior: 1.8     # 51-65 лет
+          elderly: 2.5    # 66+ лет
+        policy-term-factor:
+          short-term: 1.1    # до 5 лет
+          medium-term: 1.0   # 6-15 лет
+          long-term: 0.9     # 16+ лет
+        high-risk-occupation-factor: 1.5
+        dangerous-hobbies-factor: 1.3
+        payment-frequency-factors:
+          monthly: 1.0
+          quarterly: 0.98
+          semi-annual: 0.96
+          annual: 0.92
+        gender-factor:
+          male: 1.1
+          female: 1.0
+        beneficiary-relation-factor: 1.2
       auto:
         base-rate: ${AUTO_INSURANCE_BASE_RATE:3000.00}
         driver-experience-factor: ${DRIVER_EXPERIENCE_FACTOR:5.6}

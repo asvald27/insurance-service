@@ -15,4 +15,6 @@ public class AgeFactor {
     private BigDecimal middle;
     @NotNull
     private BigDecimal senior;
+    @NotNull
+    private BigDecimal elderly;
 }
