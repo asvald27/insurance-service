@@ -10,7 +10,7 @@ services:
       POSTGRES_PASSWORD: qwerty
       POSTGRES_HOST_AUTH_METHOD: md5
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - insurance_postgres_data:/var/lib/postgresql/data   # Для версии 16 и ниже это путь правильный
     command: postgres -c listen_addresses='*'
